@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { model } = require("mongoose");
+const shortid = require('shortid');
 const Link = require("../models/Link");
 const auth = require('../middleware/auth.middleware')
 const config = require('config')
