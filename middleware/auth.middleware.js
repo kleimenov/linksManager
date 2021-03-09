@@ -1,4 +1,8 @@
+const jwt = require('jsonwebtoken');
+const config = require('config')
+
 module.exports = (req, res, next) => {
+
   if (req.method === "OPTIONS") {
     return next();
   }
@@ -8,5 +12,7 @@ module.exports = (req, res, next) => {
     if (!token) {
       return res.status(401).json({ message: "does not authorized" });
     }
+
+    const decoded = jwt.verify(token, config.get('jwtSecret'))
   } catch (e) {}
 };
