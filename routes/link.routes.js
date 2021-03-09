@@ -11,21 +11,21 @@ router.post("/generate", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-    try {
-        const links = await Link.find({owner: null})
-        res.json(links)
-    } catch (e) {
-      res.status(500).json({ message: "Something goes wrong!" });
-    }
+  try {
+    const links = await Link.find({ owner: null });
+    res.json(links);
+  } catch (e) {
+    res.status(500).json({ message: "Something goes wrong!" });
+  }
 });
 
 router.get("/:id", async (req, res) => {
-    try {
-        const links = await Link.find({owner: null})
-        res.json(links)
-    } catch (e) {
-      res.status(500).json({ message: "Something goes wrong!" });
-    }
+  try {
+    const links = await Link.find({ owner: null });
+    res.json(links);
+  } catch (e) {
+    res.status(500).json({ message: "Something goes wrong!" });
+  }
 });
 
 module.exports = router;
