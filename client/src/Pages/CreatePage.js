@@ -20,7 +20,8 @@ export const CreatePage = () => {
           { from: link },
           { Authorization: `Bearer ${auth.token}` }
         );
-        console.log(data);
+        //console.log(data.link._id);
+        history.push(`/details/${data.link._id}`)
       } catch (e) {}
     }
   };
