@@ -2,7 +2,8 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useHttp } from "../hooks/http.hook";
-import {Loader} from '../components/Loader'
+import { Loader } from "../components/Loader";
+import { LinkCard } from "../components/LinkCard";
 
 export const DetailsPage = () => {
   const { token } = useContext(AuthContext);
@@ -10,30 +11,28 @@ export const DetailsPage = () => {
   const [link, setLink] = useState(null);
   const linkId = useParams().id;
 
-  const getLink = useCallback(
-    async () => {
-      try {
-        const fetched = await request(`/api/link/${linkId}`, "GET", null, {
-          Authorization: `Bearer ${token}`,
-        });
-        setLink(fetched);
-      } catch (e) {}
-    },
-    [token],
-    linkId,
-    request
-  );
+  //console.log(linkId)
+
+  const getLink = useCallback(async () => {
+    try {
+      const fetched = await request(`/api/link/${linkId}`, "GET", null, {
+        Authorization: `Bearer ${token}`,
+      });
+      setLink(fetched);
+    } catch (e) {}
+  }, [token, linkId, request]);
 
   useEffect(() => {
-      getLink()
-  }, [getLink])
+    getLink();
+  }, [getLink]);
 
-  if(loading) {
-      return <Loader />
+  if (loading) {
+    return <Loader />;
   }
 
   return (
     <div>
+      {!loading && link && <LinkCard />}
       <h3>Details page</h3>
     </div>
   );
