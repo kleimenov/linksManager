@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const links = await Link.findById({ owner: null });
+    const links = await Link.findById(req.params.id);
     res.json(links);
   } catch (e) {
     res.status(500).json({ message: "Something goes wrong!" });
