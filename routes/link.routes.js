@@ -18,16 +18,18 @@ router.post("/generate", auth, async (req, res) => {
       return res.json({ link: existing });
     }
 
-    const to = baseUrl + '/t/' + code;
+    const to = baseUrl + "/t/" + code;
 
     const link = new Link({
-        code, to, from, owher: req.user.userId
-    })
+      code,
+      to,
+      from,
+      owher: req.user.userId,
+    });
 
-    await link.save()
+    await link.save();
 
-    res.status(201).json({link})
-
+    res.status(201).json({ link });
   } catch (e) {
     res.status(500).json({ message: "Something goes wrong!" });
   }
@@ -46,7 +48,7 @@ router.get("/:id", auth, async (req, res) => {
   try {
     const link = await Link.findById(req.params.id);
     res.json(link);
-    console.log(link)
+    console.log(link);
   } catch (e) {
     res.status(500).json({ message: "Something goes wrong!" });
   }
