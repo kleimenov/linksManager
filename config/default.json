@@ -1,0 +1,5 @@
+{
+    "PORT": 3001,
+    "jwtSecret": "MERNfirsApp",
+    "mongoUri": "mongodb+srv://HHCD:1234qwer@cluster0.rpms7.mongodb.net/MERNapp?retryWrites=true&w=majority"
+}
