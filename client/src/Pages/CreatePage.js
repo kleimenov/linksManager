@@ -4,7 +4,7 @@ import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 
 export const CreatePage = () => {
-  useHistory();
+  const history = useHistory();
 
   const { request } = useHttp();
   const auth = useContext(AuthContext);
