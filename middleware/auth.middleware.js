@@ -14,5 +14,9 @@ module.exports = (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, config.get('jwtSecret'))
-  } catch (e) {}
+    req.user = decoded;
+    next()
+  } catch (e) {
+    res.status(401).json({ message: "does not authorized" });
+  }
 };
