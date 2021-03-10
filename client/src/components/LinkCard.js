@@ -7,13 +7,13 @@ export const LinkCard = ({ link }) => {
       <h3>Your link id is: {link._id}</h3>
       <p>
         Your link:{" "}
-        <a href={link.to} target="_blank">
+        <a href={link.to} target="_blank" rel="noopener noreferrer">
           {link.to}
         </a>
       </p>
       <p>
         Link from:{" "}
-        <a href={link.from} target="_blank">
+        <a href={link.from} target="_blank" rel="noopener noreferrer">
           {link.from}
         </a>
       </p>
