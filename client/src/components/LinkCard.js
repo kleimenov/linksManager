@@ -1,7 +1,7 @@
 import React from "react";
 
 export const LinkCard = ({ link }) => {
-  console.log(link);
+  //console.log(link);
   return (
     <div>
       <h3>Your link id is: {link._id}</h3>
