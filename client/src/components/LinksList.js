@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 
 export const LinksList = ({ links }) => {
-  console.log(links);
+  
 
   if (!links.length) {
     return <h4>You don't have any links</h4>;
