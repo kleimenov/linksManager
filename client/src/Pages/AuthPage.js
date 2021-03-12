@@ -3,7 +3,6 @@ import { AuthContext } from "../context/AuthContext";
 import { useHttp } from "../hooks/http.hook";
 
 export const AuthPage = () => {
-
   const auth = useContext(AuthContext);
 
   const { loading, error, request } = useHttp();
@@ -13,6 +12,7 @@ export const AuthPage = () => {
     password: "",
   });
 
+  
   useEffect(() => {}, [error]);
 
   const changeHandler = (event) => {
@@ -28,7 +28,7 @@ export const AuthPage = () => {
   const loginHandler = async () => {
     try {
       const data = await request("/api/auth/login", "POST", { ...form });
-      auth.login(data.token, data.userId)
+      auth.login(data.token, data.userId);
     } catch (e) {}
   };
 
