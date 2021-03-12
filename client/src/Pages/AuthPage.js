@@ -12,7 +12,6 @@ export const AuthPage = () => {
     password: "",
   });
 
-  
   useEffect(() => {}, [error]);
 
   const changeHandler = (event) => {
